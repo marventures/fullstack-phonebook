@@ -3,8 +3,8 @@ import Joi from "joi";
 // validation for adding/updating a contact
 const contactValidation = Joi.object({
   name: Joi.string().required(),
-  email: Joi.string().required(),
-  phone: Joi.string().required(),
+  email: Joi.string(),
+  number: Joi.string().required(),
 });
 
 // validation for updating favorite field

@@ -16,7 +16,7 @@ router.get("/:contactId", authenticateToken, ctrlWrapper(getContactById));
 {
     "name": "Marvin Pacis",
     "email": "marvinpacis@example.com",
-    "phone": "(639) 840-6611"
+    "number": "(639) 840-6611"
 } 
 */
 router.post("/", authenticateToken, ctrlWrapper(addContact));
@@ -28,7 +28,7 @@ router.delete("/:contactId", authenticateToken, ctrlWrapper(deleteContactById));
 {
     "name": "Joanna Shaw",
     "email": "joannashaw@example.com",
-    "phone": "(639) 777-8819"
+    "number": "(639) 777-8819"
 } 
 */
 router.put("/:contactId", authenticateToken, ctrlWrapper(updateContactById));
