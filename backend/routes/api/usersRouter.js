@@ -8,6 +8,7 @@ const router = express.Router();
 
 /* POST: // http://localhost:3000/api/users/signup
 {
+  "name":"example",
   "email": "example@example.com",
   "password": "examplepassword"
 }
