@@ -15,7 +15,7 @@ router.get("/:contactId", ctrlWrapper(getContactById));
 {
     "name": "Marvin Pacis",
     "email": "marvinpacis@example.com",
-    "number": "(639) 840-6611"
+    "phone": "(639) 840-6611"
 } 
 */
 router.post("/", ctrlWrapper(addContact));

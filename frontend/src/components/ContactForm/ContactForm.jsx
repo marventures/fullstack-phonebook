@@ -9,20 +9,20 @@ export const ContactForm = () => {
   const contacts = useSelector(selectContacts);
 
   const [name, setName] = useState('');
-  const [number, setNumber] = useState('');
+  const [phone, setPhone] = useState('');
 
   const handleNameChange = e => {
     setName(e.target.value);
   };
 
-  const handleNumberChange = e => {
-    setNumber(e.target.value);
+  const handlePhoneChange = e => {
+    setPhone(e.target.value);
   };
 
   const handleSubmit = e => {
     e.preventDefault();
 
-    if (name.trim() === '' || number.trim() === '') {
+    if (name.trim() === '' || phone.trim() === '') {
       return;
     }
 
@@ -34,12 +34,12 @@ export const ContactForm = () => {
       return;
     }
 
-    // dispatch(addContact({ name: name, number: number }));
-    dispatch(addContact({ name, number }));
+    // dispatch(addContact({ name: name, phone: phone }));
+    dispatch(addContact({ name, phone }));
 
     // Reset Form Fields upon submitting
     setName('');
-    setNumber('');
+    setPhone('');
   };
 
   return (
@@ -59,16 +59,16 @@ export const ContactForm = () => {
       </label>
 
       <label className={css.formField}>
-        <p className={css.formLabel}>Number</p>
+        <p className={css.formLabel}>Phone</p>
         <input
           type="tel"
-          name="number"
+          name="phone"
           // add \ before - in [\-.\s] to make it work (LMS)
           pattern="\+?\d{1,4}?[\-.\s]?\(?\d{1,3}?\)?[\-.\s]?\d{1,4}[\-.\s]?\d{1,4}[\-.\s]?\d{1,9}"
           title="Phone number must be digits and can contain spaces, dashes, parentheses and can start with +"
           required
-          value={number}
-          onChange={handleNumberChange}
+          value={phone}
+          onChange={handlePhoneChange}
         />
       </label>
       <button className={css.formButton} type="submit">

@@ -14,7 +14,7 @@ export const ContactListItem = ({ filteredContact }) => {
   return (
     <li className={css.contactListItem}>
       <p>{filteredContact.name}:</p>
-      <p>{filteredContact.number}</p>
+      <p>{filteredContact.phone}</p>
       <button onClick={handleDelete}>Delete</button>
     </li>
   );
