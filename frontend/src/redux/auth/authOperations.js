@@ -50,12 +50,12 @@ export const logIn = createAsyncThunk(
 );
 
 /*
- * POST @ /users/logout
+ * GET @ /users/logout
  * headers: Authorization: Bearer token
  */
 export const logOut = createAsyncThunk('auth/logout', async (_, thunkAPI) => {
   try {
-    await axios.post('/users/logout');
+    await axios.get('/users/logout');
     // After a successful logout, remove the token from the HTTP header
     clearAuthHeader();
   } catch (error) {
