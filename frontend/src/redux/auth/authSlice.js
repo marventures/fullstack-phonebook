@@ -9,6 +9,7 @@ const authSlice = createSlice({
     isLoggedIn: false,
     isRefreshing: false,
   },
+  // FIXME: get access to token in localStorage
   extraReducers: builder => {
     builder
       .addCase(register.fulfilled, (state, action) => {
