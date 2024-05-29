@@ -9,7 +9,6 @@ const authSlice = createSlice({
     isLoggedIn: false,
     isRefreshing: false,
   },
-  // FIXME: get access to token in localStorage
   extraReducers: builder => {
     builder
       .addCase(register.fulfilled, (state, action) => {
@@ -29,6 +28,7 @@ const authSlice = createSlice({
       .addCase(refreshUser.pending, state => {
         state.isRefreshing = true;
       })
+      // FIXME: cannot read properties of undefined (reading 'email') when refreshing
       .addCase(refreshUser.fulfilled, (state, action) => {
         state.user = action.payload.user;
         state.token = action.payload.token;
