@@ -28,10 +28,7 @@ const authSlice = createSlice({
       .addCase(refreshUser.pending, state => {
         state.isRefreshing = true;
       })
-      // FIXME: cannot read properties of undefined (reading 'email') when refreshing
-      .addCase(refreshUser.fulfilled, (state, action) => {
-        state.user = action.payload.user;
-        state.token = action.payload.token;
+      .addCase(refreshUser.fulfilled, state => {
         state.isLoggedIn = true;
         state.isRefreshing = false;
       })
