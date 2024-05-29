@@ -2,15 +2,14 @@ import express from "express";
 import { ctrlWrapper } from "../../helpers/ctrlWrapper.js";
 // prettier-ignore
 import { addContact, deleteContactById, getAllContacts, getContactById, updateContactById, updateStatusContact } from "../../controllers/contactsController.js";
-import { authenticateToken } from "../../middlewares/authenticateToken.js";
 
 const router = express.Router();
 
 /* GET: // http://localhost:3000/api/contacts */
-router.get("/", authenticateToken, ctrlWrapper(getAllContacts));
+router.get("/", ctrlWrapper(getAllContacts));
 
 /* GET: // http://localhost:3000/api/contacts/:contactId */
-router.get("/:contactId", authenticateToken, ctrlWrapper(getContactById));
+router.get("/:contactId", ctrlWrapper(getContactById));
 
 /* POST: // http://localhost:3000/api/contacts/ 
 {
@@ -19,10 +18,10 @@ router.get("/:contactId", authenticateToken, ctrlWrapper(getContactById));
     "number": "(639) 840-6611"
 } 
 */
-router.post("/", authenticateToken, ctrlWrapper(addContact));
+router.post("/", ctrlWrapper(addContact));
 
 /* DELETE: // http://localhost:3000/api/contacts/:contactId */
-router.delete("/:contactId", authenticateToken, ctrlWrapper(deleteContactById));
+router.delete("/:contactId", ctrlWrapper(deleteContactById));
 
 /* PUT: // http://localhost:3000/api/contacts/:contactId 
 {
@@ -31,7 +30,7 @@ router.delete("/:contactId", authenticateToken, ctrlWrapper(deleteContactById));
     "number": "(639) 777-8819"
 } 
 */
-router.put("/:contactId", authenticateToken, ctrlWrapper(updateContactById));
+router.put("/:contactId", ctrlWrapper(updateContactById));
 
 /* PATCH: // http://localhost:3000/api/contacts/:contactId/favorite
 {
@@ -39,6 +38,6 @@ router.put("/:contactId", authenticateToken, ctrlWrapper(updateContactById));
 }
 */
 // prettier-ignore
-router.patch("/:contactId/favorite", authenticateToken, ctrlWrapper(updateStatusContact));
+router.patch("/:contactId/favorite", ctrlWrapper(updateStatusContact));
 
 export { router };
