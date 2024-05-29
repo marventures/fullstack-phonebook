@@ -3,7 +3,7 @@ import jwt from "jsonwebtoken";
 import "dotenv/config";
 import { User } from "../models/usersModel.js";
 // prettier-ignore
-import { signupValidation, subscriptionValidation } from "../validations/validation.js";
+import { signupValidation, loginValidation, subscriptionValidation } from "../validations/validation.js";
 import { httpError } from "../helpers/httpError.js";
 
 const { SECRET_KEY } = process.env;
@@ -41,7 +41,7 @@ const loginUser = async (req, res) => {
   const { email, password } = req.body;
 
   //  Login validation error
-  const { error } = signupValidation.validate(req.body);
+  const { error } = loginValidation.validate(req.body);
   if (error) {
     throw httpError(401, error.message);
   }
