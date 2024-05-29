@@ -8,6 +8,7 @@ const contactSchema = new Schema(
     },
     email: {
       type: String,
+      default: null,
     },
     number: {
       type: String,

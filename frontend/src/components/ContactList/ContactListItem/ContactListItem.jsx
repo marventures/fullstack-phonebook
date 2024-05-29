@@ -8,7 +8,7 @@ export const ContactListItem = ({ filteredContact }) => {
 
   // handleDelete method
   const handleDelete = () => {
-    dispatch(deleteContact(filteredContact.id));
+    dispatch(deleteContact(filteredContact._id));
   };
 
   return (
